@@ -85,3 +85,7 @@ module.exports = {
 ## Example
 
 See [examples/preact-refresh](https://github.com/rspack-contrib/rspack-examples/blob/main/rspack/preact-refresh/rspack.config.js) for the full example.
+
+## License
+
+Rspack is [MIT licensed](https://github.com/web-infra-dev/rspack/blob/main/LICENSE).
