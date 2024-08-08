@@ -5,6 +5,8 @@
 
 # @rspack/plugin-preact-refresh
 
+Preact refresh plugin for [Rspack](https://github.com/web-infra-dev/rspack).
+
 ## Installation
 
 First you need to install the dependencies:
