@@ -23,7 +23,7 @@ bun add @rspack/plugin-preact-refresh @prefresh/core @prefresh/utils -D
 
 The enabling of the [Preact Refresh](https://github.com/preactjs/prefresh) is divided into two parts: code injection and code transformation
 
-- Code injection: injects code that interacts with `@prefresh/core` and `@prefresh/utils`, which has been integrated in the [@rspack/plugin-preact-refresh](https://github.com/web-infra-dev/rspack/tree/main/packages/rspack-plugin-preact-refresh) plugin
+- Code injection: injects code that interacts with `@prefresh/core` and `@prefresh/utils`, this is what this plugin does.
 - Code transformation requires a loader
   - Use `builtin:swc-loader` or [`swc-loader`](https://swc.rs/docs/usage/swc-loader)
     - Enable `jsc.transform.react.refresh` to support common react transformation
