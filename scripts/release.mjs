@@ -4,9 +4,9 @@ import { $ } from 'execa';
 import fs from 'fs-extra';
 import { inc } from 'semver';
 
-const RELEASE_TAG = process.env.TAG || 'test';
+const RELEASE_TAG = process.env.TAG || 'beta';
 const RELEASE_DRY_RUN = process.env.DRY_RUN || 'true';
-const RELEASE_VERSION_TYPE = process.env.VERSION || 'prepatch';
+const RELEASE_VERSION_TYPE = process.env.VERSION || 'prerelease';
 const RELEASE_NPM_TOKEN = process.env.NPM_TOKEN || '';
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));

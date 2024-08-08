@@ -16,6 +16,7 @@ on:
           - preminor
           - patch
           - prepatch
+          - prerelease
 
       tag:
         type: choice
