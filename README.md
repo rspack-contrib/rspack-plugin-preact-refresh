@@ -86,6 +86,10 @@ module.exports = {
 
 See [examples/preact-refresh](https://github.com/rspack-contrib/rspack-examples/blob/main/rspack/preact-refresh/rspack.config.js) for the full example.
 
+## Credits
+
+Thanks to the [prefresh](https://github.com/preactjs/prefresh) created by [@Jovi De Croock](https://github.com/JoviDeCroock), which inspires implement this plugin.
+
 ## License
 
 Rspack is [MIT licensed](https://github.com/web-infra-dev/rspack/blob/main/LICENSE).
