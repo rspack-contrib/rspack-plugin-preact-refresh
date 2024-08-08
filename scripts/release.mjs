@@ -44,6 +44,8 @@ try {
 } catch (e) {
   console.error(`Publish failed: ${e.message}`);
   process.exit(1);
+} finally {
+  fs.removeSync(npmrcPath);
 }
 
 // Push tag to github
@@ -58,7 +60,6 @@ if (RELEASE_DRY_RUN !== 'true') {
     await $`git tag ${tagName}`;
     await $`git push origin ${tagName}`;
     console.info(`Pushed tag successfully`);
-    fs.removeSync(npmrcPath);
     await $`git add --all`;
     const commitMsg = `release ${tagName}`;
     await $`git commit -m ${commitMsg}`;
