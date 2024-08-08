@@ -29,6 +29,7 @@ on:
           - latest
           - beta
           - alpha
+          - test
       
       dry_run:
         type: boolean
