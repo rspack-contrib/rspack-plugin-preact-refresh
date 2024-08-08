@@ -54,13 +54,14 @@ if (RELEASE_DRY_RUN !== 'true') {
     await $`git config --global user.name "github-actions[bot]"`;
     await $`git config --global user.email "github-actions[bot]@users.noreply.github.com"`;
     await $`git status`;
-    const tagName = `v${RELEASE_TAG}`;
+    const tagName = `v${nextVersion}`;
     await $`git tag ${tagName}`;
     await $`git push origin ${tagName}`;
     console.info(`Pushed tag successfully`);
     fs.removeSync(npmrcPath);
     await $`git add --all`;
-    await $`git commit -m "release ${tagName}"`;
+    const commitMsg = `release ${tagName}`;
+    await $`git commit -m ${commitMsg}`;
     await $`git push`;
     console.info(`Pushed branch successfully`);
   } catch (e) {
