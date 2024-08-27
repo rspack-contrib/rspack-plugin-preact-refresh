@@ -9,6 +9,11 @@ export interface IPreactRefreshRspackPluginOptions {
   };
 }
 
+interface NormalizedPluginOptions extends IPreactRefreshRspackPluginOptions {
+  include: NonNullable<IPreactRefreshRspackPluginOptions['include']>;
+  exclude: NonNullable<IPreactRefreshRspackPluginOptions['exclude']>;
+}
+
 const PREACT_PATHS = [
   'preact',
   'preact/compat',
@@ -56,8 +61,9 @@ const NAME = 'PreactRefreshRspackPlugin';
 
 class PreactRefreshRspackPlugin implements RspackPluginInstance {
   name = NAME;
+  private options: NormalizedPluginOptions;
 
-  constructor(private options: IPreactRefreshRspackPluginOptions) {
+  constructor(options: IPreactRefreshRspackPluginOptions) {
     this.options = {
       include: options?.include ?? /\.([jt]sx?)$/,
       exclude: options?.exclude ?? /node_modules/,
@@ -93,7 +99,6 @@ class PreactRefreshRspackPlugin implements RspackPluginInstance {
     compiler.options.module.rules.unshift({
       include: this.options.include,
       exclude: {
-
         or: [this.options.exclude, ...INTERNAL_PATHS].filter(Boolean),
       },
       use: 'builtin:preact-refresh-loader',
