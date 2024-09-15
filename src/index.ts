@@ -2,9 +2,16 @@ import fs from 'node:fs';
 import type { Compiler, RspackPluginInstance } from '@rspack/core';
 
 export interface IPreactRefreshRspackPluginOptions {
+  include?: string | RegExp | (string | RegExp)[] | null;
+  exclude?: string | RegExp | (string | RegExp)[] | null;
   overlay?: {
     module: string;
   };
+}
+
+interface NormalizedPluginOptions extends IPreactRefreshRspackPluginOptions {
+  include: NonNullable<IPreactRefreshRspackPluginOptions['include']>;
+  exclude: NonNullable<IPreactRefreshRspackPluginOptions['exclude']>;
 }
 
 const PREACT_PATHS = [
@@ -54,9 +61,12 @@ const NAME = 'PreactRefreshRspackPlugin';
 
 class PreactRefreshRspackPlugin implements RspackPluginInstance {
   name = NAME;
+  private options: NormalizedPluginOptions;
 
-  constructor(private options: IPreactRefreshRspackPluginOptions) {
+  constructor(options: IPreactRefreshRspackPluginOptions) {
     this.options = {
+      include: options?.include ?? /\.([jt]sx?)$/,
+      exclude: options?.exclude ?? /node_modules/,
       overlay: options?.overlay,
     };
   }
@@ -87,9 +97,9 @@ class PreactRefreshRspackPlugin implements RspackPluginInstance {
       ...compiler.options.resolve.alias,
     };
     compiler.options.module.rules.unshift({
-      include: /\.([jt]sx?)$/,
+      include: this.options.include,
       exclude: {
-        or: [/node_modules/, ...INTERNAL_PATHS].filter(Boolean),
+        or: [this.options.exclude, ...INTERNAL_PATHS].filter(Boolean),
       },
       use: 'builtin:preact-refresh-loader',
     });
