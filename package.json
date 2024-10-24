@@ -21,6 +21,7 @@
     "lint:write": "biome check . --write",
     "prepare": "simple-git-hooks && npm run build",
     "test": "cross-env RSPACK_HOT_TEST=true jest --colors",
+    "testu": "cross-env RSPACK_HOT_TEST=true jest --colors --updateSnapshot",
     "release": "node ./scripts/release.mjs"
   },
   "files": [
