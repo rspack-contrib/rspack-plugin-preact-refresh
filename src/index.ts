@@ -1,11 +1,31 @@
 import fs from 'node:fs';
 import { dirname } from 'node:path';
-import type { Compiler, RspackPluginInstance } from '@rspack/core';
+import type {
+  Compiler,
+  RspackPluginInstance,
+  RuleSetCondition,
+} from '@rspack/core';
 
 export interface IPreactRefreshRspackPluginOptions {
-  include?: string | RegExp | (string | RegExp)[] | null;
-  exclude?: string | RegExp | (string | RegExp)[] | null;
+  /**
+   * Include files to be processed by the plugin.
+   * The value is the same as the `rule.test` option in Rspack.
+   * @default /\.([jt]sx?)$/
+   */
+  include?: RuleSetCondition | null;
+  /**
+   * Exclude files from being processed by the plugin.
+   * The value is the same as the `rule.exclude` option in Rspack.
+   * @default /node_modules/
+   */
+  exclude?: RuleSetCondition | null;
+  /**
+   * Configure the error overlay.
+   */
   overlay?: {
+    /**
+     * The module to use for the error overlay.
+     */
     module: string;
   };
   /**
