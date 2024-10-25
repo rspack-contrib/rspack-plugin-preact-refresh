@@ -32,38 +32,37 @@ The enabling of the [Preact Refresh](https://github.com/preactjs/prefresh) is di
     - Add [`@swc/plugin-prefresh`](https://github.com/swc-project/plugins/tree/main/packages/prefresh) into `jsc.experimental.plugins` to support the specific transformation of preact
   - Use `babel-loader` and add official [babel plugin](https://github.com/preactjs/prefresh/tree/main/packages/babel) of prefresh.
 
-
 > In versions below 1.0.0, Rspack did not support preact refresh with `swc-loader`.
 >
 > Please use `builtin:swc-loader` and enable preact specific transformation with `rspackExperiments.preact: {}`
 
 ```js
-const PreactRefreshPlugin = require('@rspack/plugin-preact-refresh');
-const isDev = process.env.NODE_ENV === 'development';
+const PreactRefreshPlugin = require("@rspack/plugin-preact-refresh");
+const isDev = process.env.NODE_ENV === "development";
 
 module.exports = {
   // ...
-  mode: isDev ? 'development' : 'production',
+  mode: isDev ? "development" : "production",
   module: {
     rules: [
       {
         test: /\.jsx$/,
         use: {
-          loader: 'builtin:swc-loader',
+          loader: "builtin:swc-loader",
           options: {
             jsc: {
               experimental: {
                 plugins: [
                   [
-                    '@swc/plugin-prefresh', // enable prefresh specific transformation
+                    "@swc/plugin-prefresh", // enable prefresh specific transformation
                     {
-                      library: ['preact-like-framework'], // the customizable preact name, default is `["preact", "preact/compat", "react"]`
+                      library: ["preact-like-framework"], // the customizable preact name, default is `["preact", "preact/compat", "react"]`
                     },
                   ],
                 ],
               },
               parser: {
-                syntax: 'ecmascript',
+                syntax: "ecmascript",
                 jsx: true,
               },
               transform: {
@@ -80,6 +79,23 @@ module.exports = {
   },
   plugins: [isDev && new PreactRefreshPlugin()].filter(Boolean),
 };
+```
+
+## Options
+
+### preactPath
+
+- Type: `string`
+- Default: `path.dirname(require.resolve('preact/package.json'))`
+
+Path to the `preact` package.
+
+```js
+const path = require("node:path");
+
+new PreactRefreshPlugin({
+  preactPath: path.dirname(require.resolve("preact/package.json")),
+});
 ```
 
 ## Example
