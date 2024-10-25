@@ -83,6 +83,32 @@ module.exports = {
 
 ## Options
 
+### include
+
+- Type: [Rspack.RuleSetCondition](https://rspack.dev/config/module#condition)
+- Default: `/\.([jt]sx?)$/`
+
+Include files to be processed by the plugin. The value is the same as the `rule.test` option in Rspack.
+
+```js
+new PreactRefreshPlugin({
+  include: [/\.jsx$/, /\.tsx$/],
+});
+```
+
+### exclude
+
+- Type: [Rspack.RuleSetCondition](https://rspack.dev/config/module#condition)
+- Default: `/node_modules/`
+
+Exclude files from being processed by the plugin. The value is the same as the `rule.exclude` option in Rspack.
+
+```js
+new PreactRefreshPlugin({
+  exclude: [/node_modules/, /some-other-module/],
+});
+```
+
 ### preactPath
 
 - Type: `string`
