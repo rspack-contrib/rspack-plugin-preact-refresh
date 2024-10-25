@@ -8,11 +8,17 @@ export interface IPreactRefreshRspackPluginOptions {
   overlay?: {
     module: string;
   };
+  /**
+   * Path to the `preact` package.
+   * @default `path.dirname(require.resolve('preact/package.json'))`
+   */
+  preactPath?: string;
 }
 
 interface NormalizedPluginOptions extends IPreactRefreshRspackPluginOptions {
   include: NonNullable<IPreactRefreshRspackPluginOptions['include']>;
   exclude: NonNullable<IPreactRefreshRspackPluginOptions['exclude']>;
+  preactPath: NonNullable<IPreactRefreshRspackPluginOptions['preactPath']>;
 }
 
 const PREFRESH_CORE_PATH = require.resolve('@prefresh/core');
@@ -33,6 +39,8 @@ class PreactRefreshRspackPlugin implements RspackPluginInstance {
       include: options?.include ?? /\.([jt]sx?)$/,
       exclude: options?.exclude ?? /node_modules/,
       overlay: options?.overlay,
+      preactPath:
+        options?.preactPath ?? dirname(require.resolve('preact/package.json')),
     };
   }
 
@@ -42,8 +50,6 @@ class PreactRefreshRspackPlugin implements RspackPluginInstance {
       compiler.options.mode === 'production'
     )
       return;
-
-    const PREACT_PATH = dirname(require.resolve('preact/package.json'));
 
     const INTERNAL_PATHS = [
       PREFRESH_UTILS_PATH,
@@ -66,7 +72,7 @@ class PreactRefreshRspackPlugin implements RspackPluginInstance {
 
     // new compiler.webpack.DefinePlugin({ __refresh_library__ }).apply(compiler);
     compiler.options.resolve.alias = {
-      preact: PREACT_PATH,
+      preact: this.options.preactPath,
       '@prefresh/core': PREFRESH_CORE_PATH,
       '@prefresh/utils': PREFRESH_UTILS_PATH,
       ...compiler.options.resolve.alias,
