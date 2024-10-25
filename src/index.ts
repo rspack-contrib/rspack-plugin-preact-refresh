@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { dirname } from 'node:path';
 import type { Compiler, RspackPluginInstance } from '@rspack/core';
 
 export interface IPreactRefreshRspackPluginOptions {
@@ -14,46 +15,10 @@ interface NormalizedPluginOptions extends IPreactRefreshRspackPluginOptions {
   exclude: NonNullable<IPreactRefreshRspackPluginOptions['exclude']>;
 }
 
-const PREACT_PATHS = [
-  'preact',
-  'preact/compat',
-  'preact/debug',
-  'preact/devtools',
-  'preact/hooks',
-  'preact/test-utils',
-  'preact/jsx-runtime',
-  'preact/jsx-dev-runtime',
-  'preact/compat/client',
-  'preact/compat/server',
-  'preact/compat/jsx-runtime',
-  'preact/compat/jsx-dev-runtime',
-  'preact/compat/scheduler',
-  'preact/package.json',
-  'preact/compat/package.json',
-  'preact/debug/package.json',
-  'preact/devtools/package.json',
-  'preact/hooks/package.json',
-  'preact/test-utils/package.json',
-  'preact/jsx-runtime/package.json',
-].reduce(
-  (obj, i) => {
-    obj[i] = require.resolve(i);
-    return obj;
-  },
-  {} as Record<string, string>,
-);
 const PREFRESH_CORE_PATH = require.resolve('@prefresh/core');
 const PREFRESH_UTILS_PATH = require.resolve('@prefresh/utils');
 const RUNTIME_UTIL_PATH = require.resolve('../client/prefresh.cjs');
 const RUNTIME_INTERCEPT_PATH = require.resolve('../client/intercept.cjs');
-
-const INTERNAL_PATHS = [
-  ...Object.values(PREACT_PATHS),
-  PREFRESH_UTILS_PATH,
-  PREFRESH_CORE_PATH,
-  RUNTIME_UTIL_PATH,
-  RUNTIME_INTERCEPT_PATH,
-];
 
 const runtimeSource = fs.readFileSync(RUNTIME_INTERCEPT_PATH, 'utf-8');
 
@@ -78,6 +43,15 @@ class PreactRefreshRspackPlugin implements RspackPluginInstance {
     )
       return;
 
+    const PREACT_PATH = dirname(require.resolve('preact/package.json'));
+
+    const INTERNAL_PATHS = [
+      PREFRESH_UTILS_PATH,
+      PREFRESH_CORE_PATH,
+      RUNTIME_UTIL_PATH,
+      RUNTIME_INTERCEPT_PATH,
+    ];
+
     new compiler.webpack.ProvidePlugin({
       __prefresh_utils__: RUNTIME_UTIL_PATH,
       ...(this.options.overlay
@@ -89,23 +63,29 @@ class PreactRefreshRspackPlugin implements RspackPluginInstance {
     new compiler.webpack.EntryPlugin(compiler.context, '@prefresh/core', {
       name: undefined,
     }).apply(compiler);
+
     // new compiler.webpack.DefinePlugin({ __refresh_library__ }).apply(compiler);
     compiler.options.resolve.alias = {
+      preact: PREACT_PATH,
       '@prefresh/core': PREFRESH_CORE_PATH,
       '@prefresh/utils': PREFRESH_UTILS_PATH,
-      ...PREACT_PATHS,
       ...compiler.options.resolve.alias,
     };
+
     compiler.options.module.rules.unshift({
       include: this.options.include,
       exclude: {
-        or: [this.options.exclude, ...INTERNAL_PATHS].filter(Boolean),
+        or: [
+          this.options.exclude,
+          ...INTERNAL_PATHS,
+          /node_modules[\\/]preact[\\/]/,
+        ].filter(Boolean),
       },
       use: 'builtin:preact-refresh-loader',
     });
 
     compiler.hooks.thisCompilation.tap(NAME, (compilation) => {
-      compilation.hooks.runtimeModule.tap(NAME, (runtimeModule, chunk) => {
+      compilation.hooks.runtimeModule.tap(NAME, (runtimeModule) => {
         // rspack does not have addRuntimeModule and runtimeRequirements on js side
         if (
           runtimeModule.constructorName === 'HotModuleReplacementRuntimeModule'
