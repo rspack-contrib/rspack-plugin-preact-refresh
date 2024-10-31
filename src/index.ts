@@ -43,8 +43,8 @@ interface NormalizedPluginOptions extends IPreactRefreshRspackPluginOptions {
 
 const PREFRESH_CORE_PATH = require.resolve('@prefresh/core');
 const PREFRESH_UTILS_PATH = require.resolve('@prefresh/utils');
-const RUNTIME_UTIL_PATH = require.resolve('../client/prefresh.cjs');
-const RUNTIME_INTERCEPT_PATH = require.resolve('../client/intercept.cjs');
+const RUNTIME_UTIL_PATH = require.resolve('../client/prefresh.js');
+const RUNTIME_INTERCEPT_PATH = require.resolve('../client/intercept.js');
 
 const runtimeSource = fs.readFileSync(RUNTIME_INTERCEPT_PATH, 'utf-8');
 
@@ -79,7 +79,7 @@ class PreactRefreshRspackPlugin implements RspackPluginInstance {
     ];
 
     new compiler.webpack.ProvidePlugin({
-      __prefresh_utils__: RUNTIME_UTIL_PATH,
+      __prefresh_utils__: [RUNTIME_UTIL_PATH, 'default'],
       ...(this.options.overlay
         ? {
             __prefresh_errors__: require.resolve(this.options.overlay.module),
