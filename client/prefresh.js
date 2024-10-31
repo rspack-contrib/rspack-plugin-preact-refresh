@@ -8,7 +8,7 @@
  * https://github.com/preactjs/prefresh/blob/018f5cc907629b82ffb201c32e948efe4b40098a/LICENSE
  */
 
-const { isComponent, flush } = require('@prefresh/utils');
+import { flush, isComponent } from '@prefresh/utils';
 
 // eslint-disable-next-line
 const getExports = (m) => m.exports || m.__proto__.exports;
@@ -62,7 +62,7 @@ const shouldBind = (m) => {
   return isCitizen;
 };
 
-module.exports = Object.freeze({
+export default Object.freeze({
   getExports,
   shouldBind,
   flush,
