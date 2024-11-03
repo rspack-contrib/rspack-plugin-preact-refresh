@@ -42,7 +42,7 @@
     "@prefresh/utils": "^1.2.0",
     "@rspack/core": "1.0.14",
     "@rspack/test-tools": "1.0.14",
-    "@swc/plugin-prefresh": "^2.0.10",
+    "@swc/plugin-prefresh": "^4.0.0",
     "@swc/helpers": "0.5.13",
     "@types/node": "^22.8.6",
     "@types/jest": "29.5.14",
