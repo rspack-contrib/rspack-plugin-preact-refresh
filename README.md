@@ -34,7 +34,6 @@ The enabling of the [Preact Refresh](https://github.com/preactjs/prefresh) is di
 
 > In versions below 1.0.0, Rspack did not support preact refresh with `swc-loader`.
 >
-> Please use `builtin:swc-loader` and enable preact specific transformation with `rspackExperiments.preact: {}`
 
 ```js
 const PreactRefreshPlugin = require("@rspack/plugin-preact-refresh");
@@ -47,6 +46,8 @@ module.exports = {
     rules: [
       {
         test: /\.jsx$/,
+        // exclude node_modules to avoid dependencies transformed by `@swc/plugin-prefresh`
+        exclude: /node_modules/,
         use: {
           loader: "builtin:swc-loader",
           options: {
@@ -54,7 +55,8 @@ module.exports = {
               experimental: {
                 plugins: [
                   [
-                    "@swc/plugin-prefresh", // enable prefresh specific transformation
+                    // enable prefresh specific transformation
+                    require.resolve("@swc/plugin-prefresh"),
                     {
                       library: ["preact-like-framework"], // the customizable preact name, default is `["preact", "preact/compat", "react"]`
                     },
