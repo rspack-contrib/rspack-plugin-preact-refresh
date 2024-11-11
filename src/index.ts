@@ -1,10 +1,13 @@
 import fs from 'node:fs';
+import { createRequire } from 'node:module';
 import { dirname } from 'node:path';
 import type {
   Compiler,
   RspackPluginInstance,
   RuleSetCondition,
 } from '@rspack/core';
+
+const require = createRequire(import.meta.url);
 
 export interface IPreactRefreshRspackPluginOptions {
   /**
@@ -133,5 +136,5 @@ class PreactRefreshRspackPlugin implements RspackPluginInstance {
   }
 }
 
-// @ts-expect-error output module.exports
-export = PreactRefreshRspackPlugin;
+export { PreactRefreshRspackPlugin };
+export default PreactRefreshRspackPlugin;
