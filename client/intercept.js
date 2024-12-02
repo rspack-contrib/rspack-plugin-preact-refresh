@@ -34,7 +34,7 @@ __webpack_require__.i.push(function (options) {
         self.__PREFRESH__.register(type, currentModuleId + ' ' + id);
       };
     };
-    reg();
+    reg(moduleObject.id);
     try {
       originalFactory.call(this, moduleObject, moduleExports, webpackRequire);
     } finally {
