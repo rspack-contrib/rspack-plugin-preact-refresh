@@ -30,8 +30,8 @@ importers:
         specifier: 0.5.15
         version: 0.5.15
       '@swc/plugin-prefresh':
-        specifier: ^5.0.2
-        version: 5.0.2
+        specifier: ^6.2.0
+        version: 6.2.0
       '@types/jest':
         specifier: 29.5.14
         version: 29.5.14
@@ -610,8 +610,8 @@ packages:
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
-  '@swc/plugin-prefresh@5.0.2':
-    resolution: {integrity: sha512-C/TRrSdQDR0H0Lq3+tHlpzaYJ1yFCtR2naNEIlXCoZq5yhPlPyQ3YxaFPXvEvGUGs+PZBm0cayIq7asTTIZVVQ==}
+  '@swc/plugin-prefresh@6.2.0':
+    resolution: {integrity: sha512-BczODTil9lTAcmyP2ccSw6h9aejABdgrrfe5sLHYRtsjd9poaXqD5M7jcYVGxp99dJe7G62V3e3ZptkE57prnQ==}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -2842,7 +2842,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@swc/plugin-prefresh@5.0.2':
+  '@swc/plugin-prefresh@6.2.0':
     dependencies:
       '@swc/counter': 0.1.3
 
