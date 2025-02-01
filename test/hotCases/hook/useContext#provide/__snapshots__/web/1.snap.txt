@@ -6,7 +6,7 @@
 ## Asset Files
 - Bundle: bundle.js
 - Manifest: main.LAST_HASH.hot-update.json, size: 28
-- Update: main.LAST_HASH.hot-update.js, size: 5457
+- Update: main.LAST_HASH.hot-update.js, size: 5347
 
 ## Manifest
 
@@ -35,11 +35,11 @@ self["webpackHotUpdate"]('main', {
 "../useContext​#provide/app.jsx": (function (module, __webpack_exports__, __webpack_require__) {
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
-  App: function() { return App; }
+  App: () => (App)
 });
-/* ESM import */var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "../../../../node_modules/.pnpm/preact@10.24.3/node_modules/preact/compat/jsx-dev-runtime.js");
-/* ESM import */var preact_compat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact/compat */ "../../../../node_modules/.pnpm/preact@10.24.3/node_modules/preact/compat/dist/compat.module.js");
-/* ESM import */var preact_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! preact/hooks */ "../../../../node_modules/.pnpm/preact@10.24.3/node_modules/preact/hooks/dist/hooks.module.js");
+/* ESM import */var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "../../../../node_modules/<PNPM_INNER>/preact/compat/jsx-dev-runtime.js");
+/* ESM import */var preact_compat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact/compat */ "../../../../node_modules/<PNPM_INNER>/preact/compat/dist/compat.module.js");
+/* ESM import */var preact_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! preact/hooks */ "../../../../node_modules/<PNPM_INNER>/preact/hooks/dist/hooks.module.js");
 /* module decorator */ module = __webpack_require__.hmd(module);
 /* provided dependency */ var __prefresh_utils__ = __webpack_require__(/*! ../../../../client/prefresh.js */ "../../../../client/prefresh.js")["default"];
 
@@ -59,12 +59,12 @@ function Inner() {
                 theme
             ]
         }, void 0, true, {
-            fileName: "<PROJECT_ROOT>/test/hotCases/hook/useContext#provide/app.jsx",
+            fileName: "<ROOT>/test/hotCases/hook/useContext#provide/app.jsx",
             lineNumber: 8,
             columnNumber: 16
         }, this)
     }, void 0, false, {
-        fileName: "<PROJECT_ROOT>/test/hotCases/hook/useContext#provide/app.jsx",
+        fileName: "<ROOT>/test/hotCases/hook/useContext#provide/app.jsx",
         lineNumber: 8,
         columnNumber: 11
     }, this);
@@ -75,12 +75,12 @@ function App() {
     return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Theme.Provider, {
         value: "light",
         children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Inner, {}, void 0, false, {
-            fileName: "<PROJECT_ROOT>/test/hotCases/hook/useContext#provide/app.jsx",
+            fileName: "<ROOT>/test/hotCases/hook/useContext#provide/app.jsx",
             lineNumber: 14,
             columnNumber: 7
         }, this)
     }, void 0, false, {
-        fileName: "<PROJECT_ROOT>/test/hotCases/hook/useContext#provide/app.jsx",
+        fileName: "<ROOT>/test/hotCases/hook/useContext#provide/app.jsx",
         lineNumber: 13,
         columnNumber: 5
     }, this);
