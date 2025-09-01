@@ -48,7 +48,7 @@
     "@rspack/core": "1.5.1",
     "@rspack/test-tools": "1.5.1",
     "@swc/helpers": "0.5.17",
-    "@swc/plugin-prefresh": "^6.3.2",
+    "@swc/plugin-prefresh": "^9.0.2",
     "@types/jest": "29.5.14",
     "@types/node": "^22.18.0",
     "cross-env": "^7.0.3",

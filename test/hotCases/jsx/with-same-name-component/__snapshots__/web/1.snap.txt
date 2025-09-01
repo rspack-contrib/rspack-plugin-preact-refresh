@@ -8,7 +8,7 @@
 ## Asset Files
 - Bundle: bundle.js
 - Manifest: main.LAST_HASH.hot-update.json, size: 28
-- Update: main.LAST_HASH.hot-update.js, size: 15720
+- Update: main.LAST_HASH.hot-update.js, size: 16049
 
 ## Manifest
 
@@ -36,8 +36,12 @@
 #### Changed Content
 ```js
 "use strict";
-self["webpackHotUpdate"]('main', {
-"./app.jsx": (function (module, __webpack_exports__, __webpack_require__) {
+self["webpackHotUpdate"]("main", {
+"./app.jsx": 
+/*!*****************!*\
+  !*** ./app.jsx ***!
+  \*****************/
+(function (module, __webpack_exports__, __webpack_require__) {
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
   App: () => (App)
@@ -149,7 +153,11 @@ if (moduleHot) {
 }
 
 }),
-"./child-a.jsx": (function (module, __webpack_exports__, __webpack_require__) {
+"./child-a.jsx": 
+/*!*********************!*\
+  !*** ./child-a.jsx ***!
+  \*********************/
+(function (module, __webpack_exports__, __webpack_require__) {
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
   ChildA: () => (ChildA)
@@ -262,7 +270,11 @@ if (moduleHot) {
 }
 
 }),
-"./child-b.jsx": (function (module, __webpack_exports__, __webpack_require__) {
+"./child-b.jsx": 
+/*!*********************!*\
+  !*** ./child-b.jsx ***!
+  \*********************/
+(function (module, __webpack_exports__, __webpack_require__) {
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
   ChildB: () => (ChildB)
@@ -366,7 +378,11 @@ if (moduleHot) {
 }
 
 }),
-"./same-name-component.jsx": (function (module, __webpack_exports__, __webpack_require__) {
+"./same-name-component.jsx": 
+/*!*********************************!*\
+  !*** ./same-name-component.jsx ***!
+  \*********************************/
+(function (module, __webpack_exports__, __webpack_require__) {
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
   SameNameComponent: () => (SameNameComponent)
@@ -467,10 +483,7 @@ if (moduleHot) {
 },function(__webpack_require__) {
 // webpack/runtime/get_full_hash
 (() => {
-__webpack_require__.h = function () {
-	return "CURRENT_HASH";
-};
-
+__webpack_require__.h = () => ("CURRENT_HASH")
 })();
 
 }
