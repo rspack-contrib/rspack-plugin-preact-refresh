@@ -41,7 +41,7 @@
     ]
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.2.4",
     "@prefresh/core": "^1.5.3",
     "@prefresh/utils": "^1.2.0",
     "@rslib/core": "^0.4.0",
