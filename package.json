@@ -51,7 +51,7 @@
     "@swc/plugin-prefresh": "^9.1.0",
     "@types/jest": "29.5.14",
     "@types/node": "^22.13.0",
-    "cross-env": "^7.0.3",
+    "cross-env": "^10.0.0",
     "execa": "9.5.2",
     "fs-extra": "11.3.0",
     "jest": "29.7.0",
