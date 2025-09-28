@@ -68,7 +68,7 @@
     "@prefresh/core": "^1.5.0",
     "@prefresh/utils": "^1.2.0"
   },
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@10.17.1",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/",
