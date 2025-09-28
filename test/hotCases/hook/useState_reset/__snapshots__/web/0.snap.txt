@@ -1,4 +1,4 @@
-# Case useState#reset: Step 0
+# Case useState_reset: Step 0
 
 ## Changed Files
 

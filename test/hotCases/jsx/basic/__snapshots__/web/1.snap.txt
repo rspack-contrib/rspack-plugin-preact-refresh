@@ -6,7 +6,7 @@
 ## Asset Files
 - Bundle: bundle.js
 - Manifest: main.LAST_HASH.hot-update.json, size: 28
-- Update: main.LAST_HASH.hot-update.js, size: 3766
+- Update: main.LAST_HASH.hot-update.js, size: 3816
 
 ## Manifest
 
@@ -31,8 +31,12 @@
 #### Changed Content
 ```js
 "use strict";
-self["webpackHotUpdate"]('main', {
-"./app.jsx": (function (module, __webpack_exports__, __webpack_require__) {
+self["webpackHotUpdate"]("main", {
+"./app.jsx": 
+/*!*****************!*\
+  !*** ./app.jsx ***!
+  \*****************/
+(function (module, __webpack_exports__, __webpack_require__) {
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
   App: () => (App)
@@ -139,10 +143,7 @@ if (moduleHot) {
 },function(__webpack_require__) {
 // webpack/runtime/get_full_hash
 (() => {
-__webpack_require__.h = function () {
-	return "CURRENT_HASH";
-};
-
+__webpack_require__.h = () => ("CURRENT_HASH")
 })();
 
 }
