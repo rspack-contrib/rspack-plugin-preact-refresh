@@ -1,4 +1,4 @@
-# Case useState#reset: Step 1
+# Case useContext_provide: Step 1
 
 ## Changed Files
 - app.jsx
@@ -6,7 +6,7 @@
 ## Asset Files
 - Bundle: bundle.js
 - Manifest: main.LAST_HASH.hot-update.json, size: 28
-- Update: main.LAST_HASH.hot-update.js, size: 4506
+- Update: main.LAST_HASH.hot-update.js, size: 5376
 
 ## Manifest
 
@@ -23,7 +23,7 @@
 ### main.LAST_HASH.hot-update.js
 
 #### Changed Modules
-- ../useState​#reset/app.jsx
+- ./app.jsx
 
 #### Changed Runtime Modules
 - webpack/runtime/get_full_hash
@@ -31,24 +31,31 @@
 #### Changed Content
 ```js
 "use strict";
-self["webpackHotUpdate"]('main', {
-"../useState​#reset/app.jsx": (function (module, __webpack_exports__, __webpack_require__) {
+self["webpackHotUpdate"]("main", {
+"./app.jsx": 
+/*!*****************!*\
+  !*** ./app.jsx ***!
+  \*****************/
+(function (module, __webpack_exports__, __webpack_require__) {
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
   App: () => (App)
 });
-/* ESM import */var _swc_helpers_sliced_to_array__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @swc/helpers/_/_sliced_to_array */ "../../../../node_modules/<PNPM_INNER>/@swc/helpers/esm/_sliced_to_array.js");
 /* ESM import */var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "../../../../node_modules/<PNPM_INNER>/preact/compat/jsx-dev-runtime.js");
-/* ESM import */var preact_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact/hooks */ "../../../../node_modules/<PNPM_INNER>/preact/hooks/dist/hooks.module.js");
+/* ESM import */var preact_compat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! preact/compat */ "../../../../node_modules/<PNPM_INNER>/preact/compat/dist/compat.module.js");
+/* ESM import */var preact_hooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! preact/hooks */ "../../../../node_modules/<PNPM_INNER>/preact/hooks/dist/hooks.module.js");
 /* module decorator */ module = __webpack_require__.hmd(module);
 /* provided dependency */ var __prefresh_utils__ = __webpack_require__(/*! ../../../../client/prefresh.js */ "../../../../client/prefresh.js")["default"];
 
-
 var _s = $RefreshSig$();
 
-function App() {
+
+var Theme = Object.assign(preact_compat__WEBPACK_IMPORTED_MODULE_1__.createContext["49e76449f8402aca4293f15c90ad5b2e$Theme1"] || (preact_compat__WEBPACK_IMPORTED_MODULE_1__.createContext["49e76449f8402aca4293f15c90ad5b2e$Theme1"] = (0,preact_compat__WEBPACK_IMPORTED_MODULE_1__.createContext)('light')), {
+    __: 'light'
+});
+function Inner() {
     _s();
-    var _useState = (0,_swc_helpers_sliced_to_array__WEBPACK_IMPORTED_MODULE_2__._)((0,preact_hooks__WEBPACK_IMPORTED_MODULE_1__.useState)('light'), 1), theme = _useState[0];
+    var theme = (0,preact_hooks__WEBPACK_IMPORTED_MODULE_2__.useContext)(Theme);
     return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)("div", {
         children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)("span", {
             children: [
@@ -56,20 +63,36 @@ function App() {
                 theme
             ]
         }, void 0, true, {
-            fileName: "<ROOT>/test/hotCases/hook/useState#reset/app.jsx",
-            lineNumber: 5,
+            fileName: "<ROOT>/test/hotCases/hook/useContext_provide/app.jsx",
+            lineNumber: 8,
             columnNumber: 16
         }, this)
     }, void 0, false, {
-        fileName: "<ROOT>/test/hotCases/hook/useState#reset/app.jsx",
-        lineNumber: 5,
+        fileName: "<ROOT>/test/hotCases/hook/useContext_provide/app.jsx",
+        lineNumber: 8,
         columnNumber: 11
     }, this);
 }
-_s(App, "iRFZ/jNSewRB4O1lKD63OsK7w6w=");
-_c = App;
-var _c;
-$RefreshReg$(_c, "App");
+_s(Inner, "+C1P7ukOg/azcV4AZ819oyezFOE=");
+_c = Inner;
+function App() {
+    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Theme.Provider, {
+        value: "light",
+        children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(Inner, {}, void 0, false, {
+            fileName: "<ROOT>/test/hotCases/hook/useContext_provide/app.jsx",
+            lineNumber: 14,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "<ROOT>/test/hotCases/hook/useContext_provide/app.jsx",
+        lineNumber: 13,
+        columnNumber: 5
+    }, this);
+}
+_c1 = App;
+var _c, _c1;
+$RefreshReg$(_c, "Inner");
+$RefreshReg$(_c1, "App");
 
 /**
  * The following code is modified based on
@@ -150,10 +173,7 @@ if (moduleHot) {
 },function(__webpack_require__) {
 // webpack/runtime/get_full_hash
 (() => {
-__webpack_require__.h = function () {
-	return "CURRENT_HASH";
-};
-
+__webpack_require__.h = () => ("CURRENT_HASH")
 })();
 
 }

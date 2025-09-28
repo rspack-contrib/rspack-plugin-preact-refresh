@@ -1,12 +1,13 @@
 # Case child: Step 2
 
 ## Changed Files
+- app.jsx
 - child.jsx
 
 ## Asset Files
 - Bundle: bundle.js
 - Manifest: main.LAST_HASH.hot-update.json, size: 28
-- Update: main.LAST_HASH.hot-update.js, size: 3555
+- Update: main.LAST_HASH.hot-update.js, size: 3567
 
 ## Manifest
 
@@ -31,13 +32,17 @@
 #### Changed Content
 ```js
 "use strict";
-self["webpackHotUpdate"]('main', {
-"./child.jsx": (function (module, __webpack_exports__, __webpack_require__) {
+self["webpackHotUpdate"]("main", {
+"./child.jsx": 
+/*!*******************!*\
+  !*** ./child.jsx ***!
+  \*******************/
+(function (module, __webpack_exports__, __webpack_require__) {
 __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, {
-  Child: function() { return Child; }
+  Child: () => (Child)
 });
-/* ESM import */var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "../../../../node_modules/.pnpm/preact@10.24.3/node_modules/preact/compat/jsx-dev-runtime.js");
+/* ESM import */var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ "../../../../node_modules/<PNPM_INNER>/preact/compat/jsx-dev-runtime.js");
 /* module decorator */ module = __webpack_require__.hmd(module);
 /* provided dependency */ var __prefresh_utils__ = __webpack_require__(/*! ../../../../client/prefresh.js */ "../../../../client/prefresh.js")["default"];
 
@@ -45,7 +50,7 @@ function Child() {
     return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)("span", {
         children: "child change"
     }, void 0, false, {
-        fileName: "<PROJECT_ROOT>/test/hotCases/jsx/child/child.jsx",
+        fileName: "<ROOT>/test/hotCases/jsx/child/child.jsx",
         lineNumber: 2,
         columnNumber: 11
     }, this);
@@ -133,10 +138,7 @@ if (moduleHot) {
 },function(__webpack_require__) {
 // webpack/runtime/get_full_hash
 (() => {
-__webpack_require__.h = function () {
-	return "CURRENT_HASH";
-};
-
+__webpack_require__.h = () => ("CURRENT_HASH")
 })();
 
 }
