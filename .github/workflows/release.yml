@@ -1,35 +1,21 @@
-
 name: Release Full
 
 on:
   workflow_dispatch:
     inputs:
-      version:
-        type: choice
-        description: "Release Version Type"
-        required: true
-        default: "patch"
-        options:
-          - major
-          - premajor
-          - minor
-          - preminor
-          - patch
-          - prepatch
-          - prerelease
-
       tag:
         type: choice
         description: "Release Npm Tag"
         required: true
-        default: "latest"
+        default: "nightly"
         options:
-          - canary
-          - nightly
-          - latest
-          - beta
           - alpha
-      
+          - beta
+          - canary
+          - latest
+          - nightly
+          - rc
+
       dry_run:
         type: boolean
         description: "DryRun release"
@@ -37,16 +23,14 @@ on:
         default: false
 
 permissions:
+  contents: write
   # To publish packages with provenance
   id-token: write
 
 jobs:
   release:
     name: Release
-    permissions:
-      contents: write
-      # To publish packages with provenance
-      id-token: write
+    environment: npm
     runs-on: ubuntu-latest
 
     steps:
@@ -62,18 +46,22 @@ jobs:
           node-version: 20
           cache: "pnpm"
 
+      # Update npm to the latest version to enable OIDC
+      - name: Update npm
+        run: |
+          npm install -g npm@latest
+          npm --version
+
       - name: Install Dependencies
         run: pnpm install
 
       - name: Run Test
         run: pnpm run test
-      
-      - name: Try release to npm
-        run: pnpm run release
-        env:
-          DRY_RUN: ${{ inputs.dry_run }}
-          TAG: ${{ inputs.tag }}
-          VERSION: ${{ inputs.version }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  
+      - name: Dry run release to npm
+        if: inputs.dry_run
+        run: node scripts/release.mjs --dry-run --tag ${{ inputs.tag }}
+
+      - name: Release to npm
+        if: ${{ !inputs.dry_run }}
+        run: node scripts/release.mjs --tag ${{ inputs.tag }}
