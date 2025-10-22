@@ -110,6 +110,11 @@ class PreactRefreshRspackPlugin implements RspackPluginInstance {
           /node_modules[\\/]preact[\\/]/,
         ].filter(Boolean),
       },
+      dependency: {
+        // Assets loaded via `new URL("static/sdk.js", import.meta.url)` are asset modules
+        // Preact Refresh should not be injected for asset modules as they are static resources
+        not: ['url'],
+      },
       use: 'builtin:preact-refresh-loader',
     });
 
