@@ -5,6 +5,12 @@
 
 # @rspack/plugin-preact-refresh
 
+<p>
+  <a href="https://www.npmjs.com/package/@rspack/plugin-preact-refresh?activeTab=readme"><img src="https://img.shields.io/npm/v/@rspack/plugin-preact-refresh?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" /></a>
+  <a href="https://npmcharts.com/compare/@rspack/plugin-preact-refresh?minimal=true"><img src="https://img.shields.io/npm/dm/@rspack/plugin-preact-refresh.svg?style=flat-square&colorA=564341&colorB=EDED91" alt="downloads" /></a>
+  <a href="https://github.com/web-infra-dev/rspack/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&colorA=564341&colorB=EDED91" alt="license" /></a>
+</p>
+
 Preact refresh plugin for [Rspack](https://github.com/web-infra-dev/rspack).
 
 ## Installation
@@ -33,7 +39,6 @@ The enabling of the [Preact Refresh](https://github.com/preactjs/prefresh) is di
   - Use `babel-loader` and add official [babel plugin](https://github.com/preactjs/prefresh/tree/main/packages/babel) of prefresh.
 
 > In versions below 1.0.0, Rspack did not support preact refresh with `swc-loader`.
->
 
 ```js
 const PreactRefreshPlugin = require("@rspack/plugin-preact-refresh");
