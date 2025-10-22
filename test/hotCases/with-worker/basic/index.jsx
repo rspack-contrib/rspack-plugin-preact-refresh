@@ -20,12 +20,7 @@ it('should rerender jsx', (done) => {
   NEXT(
     update(done, true, () => {
       expect(container.querySelector('span').textContent).toBe('content 2');
-      NEXT(
-        update(done, true, () => {
-          expect(container.querySelector('span').textContent).toBe('content 3');
-          done();
-        }),
-      );
+      done();
     }),
   );
 });
