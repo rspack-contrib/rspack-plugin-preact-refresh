@@ -23,6 +23,8 @@ function isSafeExport(key) {
 }
 
 function registerExports(moduleExports, moduleId) {
+  if (!self['__PREFRESH__']) return;
+
   self['__PREFRESH__'].register(moduleExports, moduleId + ' %exports%');
   if (moduleExports == null || typeof moduleExports !== 'object') return;
 
