@@ -43,15 +43,15 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@prefresh/core": "^1.5.7",
+    "@prefresh/core": "^1.5.8",
     "@prefresh/utils": "^1.2.1",
-    "@rslib/core": "^0.15.0",
+    "@rslib/core": "^0.17.0",
     "@rspack/core": "npm:@rspack-canary/core@1.5.8-canary-f37fe028-20250928065933",
     "@rspack/test-tools": "npm:@rspack-canary/test-tools@1.5.8-canary-f37fe028-20250928065933",
     "@swc/helpers": "0.5.17",
-    "@swc/plugin-prefresh": "^9.1.0",
+    "@swc/plugin-prefresh": "^9.5.0",
     "@types/jest": "29.5.14",
-    "@types/node": "^22.18.8",
+    "@types/node": "^22.18.13",
     "cac": "^6.7.14",
     "cross-env": "^10.1.0",
     "execa": "9.6.0",
@@ -61,16 +61,16 @@
     "jest-environment-node": "29.7.0",
     "nano-staged": "^0.8.0",
     "preact": "^10.27.2",
-    "semver": "7.7.2",
+    "semver": "7.7.3",
     "simple-git-hooks": "^2.13.1",
-    "ts-jest": "29.4.4",
+    "ts-jest": "29.4.5",
     "typescript": "5.9.3"
   },
   "peerDependencies": {
     "@prefresh/core": "^1.5.0",
     "@prefresh/utils": "^1.2.0"
   },
-  "packageManager": "pnpm@10.17.1",
+  "packageManager": "pnpm@10.20.0",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
