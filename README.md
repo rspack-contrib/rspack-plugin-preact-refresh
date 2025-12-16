@@ -1,8 +1,3 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://assets.rspack.dev/rspack/rspack-banner-plain-dark.png">
-  <img alt="Rspack Banner" src="https://assets.rspack.dev/rspack/rspack-banner-plain-light.png">
-</picture>
-
 # @rspack/plugin-preact-refresh
 
 <p>
@@ -92,7 +87,7 @@ module.exports = {
 
 ### include
 
-- Type: [Rspack.RuleSetCondition](https://rspack.dev/config/module#condition)
+- Type: [Rspack.RuleSetCondition](https://rspack.rs/config/module-rules#condition)
 - Default: `/\.([jt]sx?)$/`
 
 Include files to be processed by the plugin. The value is the same as the `rule.test` option in Rspack.
@@ -105,7 +100,7 @@ new PreactRefreshPlugin({
 
 ### exclude
 
-- Type: [Rspack.RuleSetCondition](https://rspack.dev/config/module#condition)
+- Type: [Rspack.RuleSetCondition](https://rspack.rs/config/module-rules#condition)
 - Default: `/node_modules/`
 
 Exclude files from being processed by the plugin. The value is the same as the `rule.exclude` option in Rspack.
