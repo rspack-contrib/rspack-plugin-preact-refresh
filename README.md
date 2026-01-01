@@ -128,7 +128,7 @@ new PreactRefreshPlugin({
 
 ## Example
 
-See [examples/preact-refresh](https://github.com/rspack-contrib/rspack-examples/blob/main/rspack/preact-refresh/rspack.config.js) for the full example.
+See [examples/preact-refresh](https://github.com/rstackjs/rspack-examples/blob/main/rspack/preact-refresh/rspack.config.js) for the full example.
 
 ## Credits
 

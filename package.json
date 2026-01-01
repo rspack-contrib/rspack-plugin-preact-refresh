@@ -1,7 +1,7 @@
 {
   "name": "@rspack/plugin-preact-refresh",
   "version": "1.1.4",
-  "repository": "https://github.com/rspack-contrib/rspack-plugin-preact-refresh",
+  "repository": "https://github.com/rstackjs/rspack-plugin-preact-refresh",
   "license": "MIT",
   "description": "Preact refresh plugin for Rspack",
   "type": "module",
